@@ -15,5 +15,14 @@
   "bugs": {
     "url": "https://github.com/nisarg3322/petharmony/issues"
   },
-  "homepage": "https://github.com/nisarg3322/petharmony#readme"
+  "homepage": "https://github.com/nisarg3322/petharmony#readme",
+  "dependencies": {
+    "connect-flash": "^0.1.1",
+    "ejs": "^3.1.9",
+    "ejs-mate": "^4.0.0",
+    "express": "^4.18.2",
+    "joi": "^17.9.2",
+    "method-override": "^3.0.0",
+    "mongoose": "^7.4.3"
+  }
 }
