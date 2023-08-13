@@ -1,0 +1,19 @@
+{
+  "name": "petharmony",
+  "version": "1.0.0",
+  "description": "PETHARMONY a pet market place",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nisarg3322/petharmony.git"
+  },
+  "author": "Nisarg Patel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nisarg3322/petharmony/issues"
+  },
+  "homepage": "https://github.com/nisarg3322/petharmony#readme"
+}
