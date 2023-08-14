@@ -1,0 +1,107 @@
+<% layout('layouts/boilerplate') %>
+<link rel="stylesheet" href="/styles/edit.css" />
+
+<div class="row">
+  <h1 class="text-center">Edit post</h1>
+</div>
+
+<form
+  action="/posts/<%=post._id%>?_method=put"
+  method="POST"
+  novalidate
+  class="validated-form"
+>
+  <div class="mb-3">
+    <label for="title" class="form-label">Title</label>
+    <input
+      class="form-control"
+      type="text"
+      name="post[title]"
+      id="title"
+      value="<%=post.title%>"
+      required
+    />
+    <div class="valid-feedback">Looks good!</div>
+  </div>
+  <div class="mb-3">
+    <label for="location" class="form-label">Location</label>
+    <input
+      class="form-control"
+      type="text"
+      name="post[location]"
+      id="location"
+      value="<%=post.location%>"
+      required
+    />
+    <div class="valid-feedback">Looks good!</div>
+  </div>
+  <div class="mb-3">
+    <label for="breed" class="form-label">breed</label>
+    <input
+      class="form-control"
+      type="text"
+      name="post[breed]"
+      id="breed"
+      value="<%=post.breed%>"
+      required
+    />
+    <div class="valid-feedback">Looks good!</div>
+  </div>
+  <div class="mb-3">
+    <label for="price" class="form-label">price</label>
+    <div class="input-group">
+      <span class="input-group-text" id="price-label">$</span>
+      <input
+        type="text"
+        class="form-control"
+        id="price"
+        placeholder="0.00"
+        aria-label="price"
+        aria-describedby="price-label"
+        name="post[price]"
+        value="<%=post.price %>"
+        required
+      />
+      <div class="valid-feedback">Looks good!</div>
+    </div>
+  </div>
+  <div class="mb-3">
+    <label for="description" class="form-label">description</label>
+    <textarea
+      class="form-control"
+      type="text"
+      name="post[description]"
+      id="description"
+      required
+    >
+     <%=post.description%></textarea
+    >
+    <div class="valid-feedback">Looks good!</div>
+  </div>
+  <div class="mb-3">
+    <label for="category" class="form-label">Category</label>
+    <select
+      class="form-select"
+      type="text"
+      name="post[category]"
+      selected="<%=post.category%>"
+      id="category"
+      required
+    >
+      <option selected value="dog">Dog</option>
+      <option value="cat">Cat</option>
+      <option value="bird">Bird</option>
+      <option value="rabbit">Rabbit</option>
+      <option value="other">Other</option>
+    </select>
+
+    <div class="valid-feedback">Looks good!</div>
+  </div>
+
+  <button class="btn btn-md btn-success mb-3">Submit</button>
+</form>
+
+<script>
+  let category = document.getElementById("category");
+  category.value = "<%=post.category%>";
+</script>

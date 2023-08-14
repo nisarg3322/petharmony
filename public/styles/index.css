@@ -1,0 +1,31 @@
+body {
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url("landing_wallpaper.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; 
+    background-attachment: fixed;
+    text-shadow: 0 0.02rem 0.08rem rgba(0, 0, 0, 0.5);
+    
+    
+}
+
+.nav-link{
+    color: rgba(255,255,255,0.5);
+}
+
+.nav-link:hover{
+    color: white;
+}
+
+.nav-item{
+    border-radius: 15%;
+    border-bottom: 0.25rem solid transparent;
+    margin-left: 2rem;
+
+}
+
+.nav-item:hover{
+    border-bottom-color:rgba(255,255,255,0.5); 
+    
+}
