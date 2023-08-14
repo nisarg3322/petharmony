@@ -10,6 +10,8 @@ router.get('/' , async(req,res) => {
 
 })
 
+
+
 //creating new post routes
 
 router.get('/new' , (req,res) => {

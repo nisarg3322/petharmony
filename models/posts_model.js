@@ -13,10 +13,11 @@ const PostSchema = new Schema({
     breed: String,
     price: Number,
     location:String,
-    // seller: {
-    //     type: Schema.Types.ObjectId,
-    //     ref:'Seller'
-    // }
+    seller:{
+        type: Schema.Types.ObjectId,
+        ref: 'Seller'
+    }
+  
 })
 
 module.exports = mongoose.model('Post' , PostSchema);

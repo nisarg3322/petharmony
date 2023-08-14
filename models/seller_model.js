@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const passportLocalMongoose = require('passport-local-mongoose');
 
-const listingSchema = new Schema({
+const sellerSchema = new Schema({
     email:{
         type: String,
         required:true,
@@ -9,3 +10,7 @@ const listingSchema = new Schema({
     }
 
 })
+
+sellerSchema.plugin(passportLocalMongoose);
+
+module.exports = mongoose.model('Seller', sellerSchema)
