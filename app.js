@@ -8,16 +8,17 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local');
 const session = require('express-session');
 const flash = require('connect-flash');
+const ExpressError = require('./utils/ExpressError')
 
 // requiring models
-const Seller = require('./models/seller_model')
+const User = require('./models/user_model')
 
 
 // Requiring routes
 const postRoutes = require('./routes/posts_routes');
-const sellerRoutes = require('./routes/seller_routes');
+const userRoutes = require('./routes/user_routes');
 
-// databse mongoose connect code
+// database mongoose connect code
 mongoose.connect('mongodb://127.0.0.1:27017/petharmony')
     .then(() => {
         console.log("Mongo Connected!!!!")
@@ -53,26 +54,48 @@ app.use(session(sessionConfig))
 app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session())
-passport.use(new LocalStrategy(Seller.authenticate()));
+passport.use(new LocalStrategy(User.authenticate()));
 
-passport.serializeUser(Seller.serializeUser());
-passport.deserializeUser(Seller.deserializeUser());
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 // locals middleware for every req object
 app.use((req, res, next) => {
-    res.locals.currentUser = req.Seller;
+    res.locals.currentUser = req.user;
     res.locals.success = req.flash('success');
     res.locals.error = req.flash('error');
     next();
 })
-    
+   
+// test routes
+app.get('/flash' , (req,res) => {
+    req.flash('success', 'Hello from flash');
+    res.render('flash.ejs')
+})
+
 // Routers
 app.get('/',(req,res) => {
     res.render('home.ejs')
 })
 
 app.use('/posts', postRoutes);
-app.use('/', sellerRoutes);
+app.use('/', userRoutes);
+
+
+// universal error for not visiting wrong URL
+app.all('*', (req, res, next) => {
+    // res.send('opps something went wrong')
+    
+    next(new ExpressError('Page Not Found', 404))
+})
+
+//universal error for general error
+app.use((err, req, res, next) => {
+    const { statusCode = 500 } = err;
+    if (!err.message) err.message = 'Oh No, Something Went Wrong!'
+    res.status(statusCode).render('./error', { err })
+})
+
 
 
 // server listening code

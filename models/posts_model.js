@@ -1,7 +1,7 @@
 
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const Seller = require('./seller_model');
+const User = require('./user_model');
 
 const PostSchema = new Schema({
     title:String,
@@ -13,9 +13,9 @@ const PostSchema = new Schema({
     breed: String,
     price: Number,
     location:String,
-    seller:{
+    author:{
         type: Schema.Types.ObjectId,
-        ref: 'Seller'
+        ref: 'User'
     }
   
 })

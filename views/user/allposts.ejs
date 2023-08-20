@@ -1,0 +1,31 @@
+<% layout('layouts/boilerplate') %>
+<link rel="stylesheet" href="./styles/index.css" />
+<h1 class="text-white"><%= user.username %> all posts</h1>
+<div class="d-flex justify-content-end">
+  <a
+    href="/posts/new"
+    class="text-white fs-5 text-decoration-none btn btn-primary mb-3"
+    >Create new post</a
+  >
+</div>
+<% for (let post of posts){%>
+<div class="card mb-3">
+  <div class="row">
+    <div class="col-md-4">
+      <img class="img-fluid" alt="" src="" />
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"><%= post.title %></h5>
+        <p class="card-text"><%= post.description %></p>
+        <p class="card-text">
+          <small class="text-muted"><%= post.location%></small>
+        </p>
+        <a class="btn btn-primary" href="/posts/<%=post._id%>"
+          >View <%=post.title%></a
+        >
+      </div>
+    </div>
+  </div>
+</div>
+<% }%>
