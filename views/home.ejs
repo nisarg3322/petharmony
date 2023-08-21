@@ -48,8 +48,7 @@
 
                 <% } else { %>
                 <a class="nav-link" href="/Logout"
-                  >Logout <%= currentUser.firstname.charAt(0).toUpperCase() +
-                  currentUser.firstname.slice(1) %></a
+                  >Logout <%= currentUser.firstname %></a
                 >
 
                 <% } %>
@@ -83,6 +82,12 @@
           href="/<%= currentUser._id%>/myposts"
           class="btn btn-lg btn-secondary font-weight-bold border-white bg-white"
           >View my recent posts</a
+        >
+        <% } else { %>
+        <a
+          href="/login"
+          class="btn btn-lg btn-secondary font-weight-bold border-white bg-white"
+          >Login</a
         >
         <% } %>
       </main>

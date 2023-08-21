@@ -1,3 +1,9 @@
+if(process.env.NODE_ENV !== 'production'){
+    require('dotenv').config();
+}
+
+
+
 const express = require('express');
 const app = express();
 const path = require('path');
@@ -67,11 +73,7 @@ app.use((req, res, next) => {
     next();
 })
    
-// test routes
-app.get('/flash' , (req,res) => {
-    req.flash('success', 'Hello from flash');
-    res.render('flash.ejs')
-})
+
 
 // Routers
 app.get('/',(req,res) => {

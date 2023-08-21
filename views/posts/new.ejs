@@ -4,7 +4,13 @@
   <h1 class="text-center">New post</h1>
 </div>
 
-<form action="/posts" method="post" novalidate class="validated-form">
+<form
+  action="/posts"
+  method="post"
+  novalidate
+  class="validated-form"
+  enctype="multipart/form-data"
+>
   <div class="mb-3">
     <label for="title" class="form-label">Title</label>
     <input
@@ -27,6 +33,7 @@
     />
     <div class="valid-feedback">Looks good!</div>
   </div>
+  <input type="file" name="image" id="image" multiple />
   <div class="mb-3">
     <label for="breed" class="form-label">breed</label>
     <input

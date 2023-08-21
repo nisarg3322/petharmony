@@ -3,6 +3,9 @@ const router = express.Router();
 const Post = require('../models/posts_model');
 const catchAsync = require('../utils/catchAsync');
 const {validatePost, isLoggedIn, isAuthor} = require('../middleware')
+const multer = require('multer');
+const {storage} = require('../cloudinary/index')
+const uploads = multer({storage});
 
 // listing all post route
 router.get('/' , async(req,res) => {
@@ -20,12 +23,12 @@ router.get('/new' , isLoggedIn, (req,res) => {
     res.render('./posts/new')
 })
 
-router.post('/' , isLoggedIn, validatePost, catchAsync(async (req,res) => {
+router.post('/' , isLoggedIn, uploads.array('image'), validatePost, catchAsync(async (req,res) => {
+    const files = req.files.map(f => ({url: f.path, filename: f.filename}))
     const post = new Post(req.body.post);
+    post.images = files;
     post.author = req.user._id;
-    
     await post.save();
-    
     req.flash('success', 'Successfully created a new post')
     res.redirect(`/posts/${post._id}`);
 }))
@@ -33,7 +36,7 @@ router.post('/' , isLoggedIn, validatePost, catchAsync(async (req,res) => {
 // show route for each post using _id
 
 router.get('/:id', catchAsync(async (req,res) => {
-    const post = await Post.findById(req.params.id);
+    const post = await Post.findById(req.params.id).populate('author');
     res.render('./posts/show', {post});
 }))
 

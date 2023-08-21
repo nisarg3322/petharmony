@@ -14,7 +14,8 @@ router.get('/register' , (req,res) => {
 
 router.post('/register' , catchAsync(async (req,res) => {
     try{
-        const{email,username ,password, firstname, lastname } = req.body.user;
+        let{email,username ,password, firstname, lastname } = req.body.user;
+        firstname = firstname.charAt(0).toUpperCase() + firstname.slice(1)
         const user = new User({username,email, firstname, lastname });
         const registeredUser = await User.register(user,password);
         req.login(registeredUser, err => {
@@ -35,7 +36,7 @@ router.get('/login' , (req,res) => {
     res.render('./user/login');
 })
 
-router.post('/login' , storeReturnTo, passport.authenticate('local', {failureFlash: true, failureRedirect:'/'}), (req,res) => {
+router.post('/login' , storeReturnTo, passport.authenticate('local', {failureFlash: true, failureRedirect:'/login'}), (req,res) => {
     
     req.flash('success' , 'Welcome back!!');
     const redirectUrl = res.locals.returnTo || '/'
