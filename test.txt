@@ -19,9 +19,11 @@ flash functions (DONE)
 login page and local variables (DONE)
 login middleware (DONE)
 joi schema to validate posts (DONE)
+make a "own post section to see all the post that a particular user posted and manage it like edit and delete" (DONE)
+
+
 delete all the data with the post and user delete.
 upoload images and store with the image
-make a "own post section to see all the post that a particular user posted and manage it like edit and delete"
 improve the UI and make it little more clean.
 deploy and test.
 
@@ -30,3 +32,27 @@ additional feature.
 
 message and filter options.
 different sections for different types of pets.
+
+
+chat gpt promp for resume for this project:
+how to discribe a project that i make in my resume i am applying for my first software engineering internship , so the discription of the projevt is here: it is a marketplace full stack web app where people can login and register for a account and also post new posting of there pet or see all the post of other users and i have used node.js express.js mongodb, ejs, login and register , authentication and autorisation, image uploade and same different models and schema of mongo db like users and post and also store refID of user who made the post in post model like databse relation ship also it is hosted and deployed on a server. also used middeware and so many differernt pakages like  dotenv, mongoose method-override,passport.js,session, connect-flash , errorhandeling and custom error handeling made diffrent router for different routes also i have followed RESTfull API concept and also implimented CRUD application for both post and user .
+
+
+answer from chat gpt 
+1) Developed a full-stack marketplace web app enabling user registration, login, and pet-related postings.
+Implemented user authentication, authorization, and relational database modeling using Node.js, Express.js, and MongoDB.
+Utilized EJS for dynamic rendering and efficient image uploading within the MongoDB database.
+Designed schemas for users and posts, ensuring data integrity and reference ID relationships.
+Enhanced user experience with packages like dotenv, method-override, passport.js, and session management.
+Applied middleware and error-handling techniques, including custom error handling, for a smooth interface.
+Followed RESTful API principles, achieving CRUD functionality for both user and post entities.
+Successfully deployed the application on a server, demonstrating deployment proficiency.
+
+2)Engineered a dynamic, full-stack marketplace web application, redefining pet interactions through seamless registration, engaging user postings, and interactive content.
+Orchestrated robust user authentication, fueling trust and secure access, while also crafting an intricate relational model in Node.js, Express.js, and MongoDB.
+Breathing life into the interface, harnessed EJS for captivating content presentation and empowered users to effortlessly upload pet visuals, leveraging MongoDB's prowess.
+Engineered ingenious database architecture, designing agile user and post schemas, weaving a cohesive data tapestry and meticulously managing reference ID relationships.
+Elevating user satisfaction, integrated dotenv, method-override, passport.js, and intelligent session management for an unparalleled experience.
+Fine-tuned user journeys with intuitive middleware and a symphony of error-handling techniques, including a bespoke touch for seamless navigation.
+Adhered to RESTful API principles, birthing a harmonious CRUD symphony for both user and post realms, refining data interactions.
+Showcased mastery by flawlessly deploying the masterpiece onto a server, revealing not only code prowess but a complete project lifecycle grasp.

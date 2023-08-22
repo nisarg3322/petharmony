@@ -43,7 +43,7 @@ router.get('/:id', catchAsync(async (req,res) => {
 // update/edit routes for post
 router.get('/:id/edit' , isLoggedIn, isAuthor, catchAsync(async(req,res) => {
     const post = await Post.findById(req.params.id);
-    req.flash('success' , 'Successfully edited the post')
+    
     res.render('./posts/edit' , {post})
 }))
 

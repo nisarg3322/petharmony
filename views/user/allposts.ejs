@@ -1,6 +1,6 @@
 <% layout('layouts/boilerplate') %>
 <link rel="stylesheet" href="./styles/index.css" />
-<h1 class="text-white"><%= user.username %> all posts</h1>
+<h2><%= user.firstname %>'s all posts</h1>
 <div class="d-flex justify-content-end">
   <a
     href="/posts/new"
@@ -8,24 +8,32 @@
     >Create new post</a
   >
 </div>
-<% for (let post of posts){%>
-<div class="card mb-3">
-  <div class="row">
-    <div class="col-md-4">
-      <img class="img-fluid" alt="" src="" />
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title"><%= post.title %></h5>
-        <p class="card-text"><%= post.description %></p>
-        <p class="card-text">
-          <small class="text-muted"><%= post.location%></small>
-        </p>
-        <a class="btn btn-primary" href="/posts/<%=post._id%>"
-          >View <%=post.title%></a
-        >
+<div class="row">
+  <% for (let post of posts){%>
+  <div class="col-md-6">
+    <div class="card mb-4">
+      <div class="row">
+        <div class="col-md-4 d-flex justify-content-center px-0">
+          <img
+            class="img-fluid img-thumbnail custom-image-size"
+            alt="image"
+            src="<%= post.images[0].url %>"
+          />
+        </div>
+        <div class="col-md-8 px-0">
+          <div class="card-body">
+            <h5 class="card-title"><%= post.title %></h5>
+            <p class="card-text"><%= post.description %></p>
+            <p class="card-text">
+              <small class="text-muted"><%= post.location%></small>
+            </p>
+            <a class="btn btn-primary" href="/posts/<%=post._id%>"
+              >View <%=post.title%></a
+            >
+          </div>
+        </div>
       </div>
     </div>
   </div>
+  <% }%>
 </div>
-<% }%>
