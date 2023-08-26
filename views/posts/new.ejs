@@ -33,7 +33,11 @@
     />
     <div class="valid-feedback">Looks good!</div>
   </div>
-  <input type="file" name="image" id="image" multiple />
+  <div class="mb-3">
+    <label for="image" class="form-label">Choose Images..</label>
+    <input type="file" name="image" id="image" class="form-control" multiple />
+  </div>
+
   <div class="mb-3">
     <label for="breed" class="form-label">breed</label>
     <input
@@ -47,14 +51,20 @@
   </div>
   <div class="mb-3">
     <label for="price" class="form-label">price</label>
-    <input
-      class="form-control"
-      type="number"
-      name="post[price]"
-      id="price"
-      required
-    />
-    <div class="valid-feedback">Looks good!</div>
+    <div class="input-group">
+      <span class="input-group-text" id="price-label">$</span>
+      <input
+        type="text"
+        class="form-control"
+        id="price"
+        placeholder="0.00"
+        aria-label="price"
+        aria-describedby="price-label"
+        name="post[price]"
+        required
+      />
+      <div class="valid-feedback">Looks good!</div>
+    </div>
   </div>
   <div class="mb-3">
     <label for="description" class="form-label">description</label>

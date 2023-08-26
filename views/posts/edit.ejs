@@ -9,6 +9,7 @@
   method="POST"
   novalidate
   class="validated-form"
+  enctype="multipart/form-data"
 >
   <div class="mb-3">
     <label for="title" class="form-label">Title</label>
@@ -83,11 +84,10 @@
       class="form-select"
       type="text"
       name="post[category]"
-      selected="<%=post.category%>"
       id="category"
       required
     >
-      <option selected value="dog">Dog</option>
+      <option value="dog">Dog</option>
       <option value="cat">Cat</option>
       <option value="bird">Bird</option>
       <option value="rabbit">Rabbit</option>
@@ -96,8 +96,30 @@
 
     <div class="valid-feedback">Looks good!</div>
   </div>
+  <div class="mb-3">
+    <label for="image" class="form-label">Add more images..</label>
+    <input type="file" name="image" id="image" class="form-control" multiple />
+  </div>
 
-  <button class="btn btn-md btn-success mb-3">Submit</button>
+  <div class="mb-3">
+    <div class="row">
+      <% post.images.forEach(function(img,i){ %>
+      <div class="col-3">
+        <img src="<%= img.url %>" class="img-thumbnail" alt="" />
+        <div class="form-check-inline">
+          <input
+            type="checkbox"
+            id="image-<%=i%>"
+            name="deleteImages[]"
+            value="<%= img.filename%>"
+          />
+        </div>
+        <label for="image-<%=i%>">Delete?</label>
+      </div>
+      <% }) %>
+    </div>
+  </div>
+  <button class="btn btn-md btn-success mb-3">Update</button>
 </form>
 
 <script>

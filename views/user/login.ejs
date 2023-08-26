@@ -1,29 +1,42 @@
 <% layout('layouts/boilerplate') %>
+<div class="container justify-content-center align-items-center mt-5">
+  <div class="row">
+    <div class="col-md-6 offset-md-3 col-xl-4 offset-xl-4">
+      <div class="card shadow">
+        <img src="/media/login_img.jpg" alt="" class="card-img-top" />
+        <div class="card-body">
+          <div class="card-title">
+            <h5>Login</h5>
+          </div>
+          <form action="/login" method="post" class="validated-form" novalidate>
+            <div class="mb-3">
+              <label class="form-label" for="username">Username</label>
+              <input
+                class="form-control"
+                type="text"
+                id="username"
+                name="username"
+                autofocus
+                required
+              />
+              <div class="valid-feedback">Looks good!</div>
+            </div>
 
-<h1>Login</h1>
-<form action="/login" method="post" class="validated-form" novalidate>
-  <div class="mb-3">
-    <label class="form-label" for="username">username</label>
-    <input
-      class="form-control"
-      type="text"
-      id="username"
-      name="username"
-      required
-    />
-    <div class="valid-feedback">Looks good!</div>
+            <div class="mb-3">
+              <label class="form-label" for="email">Password</label>
+              <input
+                class="form-control"
+                type="password"
+                id="password"
+                name="password"
+                required
+              />
+              <div class="valid-feedback">Looks good!</div>
+            </div>
+            <button class="btn btn-success w-100">Login</button>
+          </form>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="mb-3">
-    <label class="form-label" for="email">Password</label>
-    <input
-      class="form-control"
-      type="password"
-      id="password"
-      name="password"
-      required
-    />
-    <div class="valid-feedback">Looks good!</div>
-  </div>
-  <button class="btn btn-success">Login</button>
-</form>
+</div>

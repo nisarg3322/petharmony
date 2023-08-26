@@ -9,7 +9,8 @@ module.exports.postSchema = joi.object({
         breed: joi.string().required(),
         price: joi.number().required().min(1),
         location: joi.string().required(),
-    }).required()
+    }).required(),
+    deleteImages: joi.array()
 })
 
 

@@ -20,15 +20,18 @@ login page and local variables (DONE)
 login middleware (DONE)
 joi schema to validate posts (DONE)
 make a "own post section to see all the post that a particular user posted and manage it like edit and delete" (DONE)
+upoload images and store with the image (DONE)
 
+
+remaining:
 
 delete all the data with the post and user delete.
-upoload images and store with the image
-improve the UI and make it little more clean.
+
+improve the UI and make it little more clean. update login and register page and show page.
 deploy and test.
 
 
-additional feature.
+future plans for additional feature.
 
 message and filter options.
 different sections for different types of pets.
@@ -56,3 +59,18 @@ Elevating user satisfaction, integrated dotenv, method-override, passport.js, an
 Fine-tuned user journeys with intuitive middleware and a symphony of error-handling techniques, including a bespoke touch for seamless navigation.
 Adhered to RESTful API principles, birthing a harmonious CRUD symphony for both user and post realms, refining data interactions.
 Showcased mastery by flawlessly deploying the masterpiece onto a server, revealing not only code prowess but a complete project lifecycle grasp.
+
+3) AtS friendly version 
+
+Created a dynamic pet marketplace website facilitating pet adoption, sales, and user postings for an enriched pet interaction experience.
+Implemented robust user authentication using Passport.js to ensure secure access and build user trust.
+Designed complex relational models and managed model relationships in Node.js, Express.js, and MongoDB for optimized data storage and retrieval.
+Utilized EJS for dynamic content presentation, allowing seamless pet media uploads and immersive user experiences.
+Created agile user/post schemas, optimizing data structures for efficient handling of user-generated content.
+Integrated method-override for RESTful routes, enhancing data interactions and user navigation.
+Orchestrated middleware techniques and meticulous error handling for intuitive user journeys.
+Demonstrated adherence to RESTful API principles through a comprehensive CRUD architecture that enhances data interactions.
+Successfully deployed the project, showcasing coding expertise and a holistic grasp of the project lifecycle.
+
+
+Dynamic second-year Computer Engineering student at University of Ottawa (9.1/10.0 CGPA), adept in Java, Python, HTML, CSS, and JavaScript. Expertise spans full-stack Web development using Node.js, Express, and MongoDB. Seeking impactful internships to collaborate with industry leaders and elevate the world of Computer Engineering.

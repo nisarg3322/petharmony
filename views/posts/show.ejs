@@ -1,21 +1,13 @@
 <% layout('layouts/boilerplate') %>
 <link rel="stylesheet" href="/styles/show.css" />
 
-<div class="row d-flex justify-content-center">
-  <div class="col-5">
-    <div
-      id="carouselExample"
-      class="carousel slide d-flex justify-content-center"
-    >
+<div class="row justify-content-center">
+  <div class="col-lg-6">
+    <div id="carouselExample" class="carousel slide">
       <div class="carousel-inner">
-        <% post.images.forEach((img,i) => { %>
-        <div class="carousel-item <%= i === 0 ?'active' : ''%>">
-          <img
-            src="<%=img.url %>"
-            class="img-fluid img-thumbnail"
-            id="img-custom"
-            alt="..."
-          />
+        <% post.images.forEach((img, i) => { %>
+        <div class="carousel-item <%= i === 0 ? 'active' : '' %>">
+          <img src="<%= img.url %>" class="img-fluid rounded" alt="..." />
         </div>
         <% }) %>
       </div>
@@ -39,35 +31,53 @@
       </button>
     </div>
   </div>
-  <div class="col-6">
-    <div class="card mb-3">
+  <div class="col-lg-5">
+    <div class="card my-4">
       <div class="card-body">
-        <h1 class="card-title mb-4"><%= post.title%></h1>
-        <h5 class="card-text d-inline">Discription:</h5>
-        <p class="card-text d-inline"><%= post.description%></p>
+        <h1 class="card-title"><%= post.title %></h1>
+        <h5 class="card-text d-inline">Description:</h5>
+        <p class="card-text d-inline"><%= post.description %></p>
       </div>
       <ul class="list-group list-group-flush">
-        <li class="list-group-item text-muted"><%= post.location%></li>
+        <li class="list-group-item">
+          <strong class="mr-3">Location:</strong> <%= post.location %>
 
-        <li class="list-group-item">Price: $<%= post.price%></li>
-        <li class="list-group-item">Breed: <%= post.breed%></li>
-        <li class="list-group-item">Category: <%= post.category%></li>
+          <a
+            target="_blank"
+            href="https://www.google.com/maps/place/<%= post.location  %>"
+            class="btn btn-success"
+          >
+            <i class="fa-solid fa-compass" style="color: #24ccb0"></i> Find on
+            google maps
+          </a>
+        </li>
+        <li class="list-group-item">
+          <strong>Price:</strong> $<%= post.price %>
+        </li>
+        <li class="list-group-item">
+          <strong>Breed:</strong> <%= post.breed %>
+        </li>
+        <li class="list-group-item">
+          <strong>Category:</strong> <%= post.category %>
+        </li>
+        <li class="list-group-item">
+          <strong>Contact by Email: </strong> <%= post.author.email %>
+        </li>
       </ul>
-      <% if(currentUser && currentUser._id.equals(post.author._id)){ %>
-      <div class="card-body">
-        <a class="card-link btn btn-info" href="/posts/<%=post._id%>/edit"
+      <% if (currentUser && currentUser._id.equals(post.author._id)) { %>
+      <div class="card-footer">
+        <a class="btn btn-info btn-sm" href="/posts/<%= post._id %>/edit"
           >Edit</a
         >
         <form
           class="d-inline"
-          action="/posts/<%=post._id%>?_method=DELETE"
+          action="/posts/<%= post._id %>?_method=DELETE"
           method="POST"
         >
-          <button class="btn btn-danger">Delete</button>
+          <button class="btn btn-danger btn-sm">Delete</button>
         </form>
       </div>
       <% } %>
-
       <div class="card-footer text-muted">by <%= post.author.username %></div>
     </div>
   </div>
