@@ -10,7 +10,9 @@ basic securiety using passport.js
 
 image upload in cloudanary.
  
-
+========================
+username: patelnisarg3322
+password for mongo: v0hNFY8vOwU7ghWl
 
 next step
 
@@ -21,13 +23,12 @@ login middleware (DONE)
 joi schema to validate posts (DONE)
 make a "own post section to see all the post that a particular user posted and manage it like edit and delete" (DONE)
 upoload images and store with the image (DONE)
+delete all the data with the post and user delete.(DONE)
+improve the UI and make it little more clean. update login and register page and show page.(DONE)
 
 
 remaining:
 
-delete all the data with the post and user delete.
-
-improve the UI and make it little more clean. update login and register page and show page.
 deploy and test.
 
 

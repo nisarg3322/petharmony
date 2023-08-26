@@ -2,8 +2,6 @@ if(process.env.NODE_ENV !== 'production'){
     require('dotenv').config();
 }
 
-
-
 const express = require('express');
 const app = express();
 const path = require('path');
@@ -13,6 +11,7 @@ const methodOverride = require('method-override');
 const passport = require('passport');
 const LocalStrategy = require('passport-local');
 const session = require('express-session');
+const mongoStore = require('connect-mongo')
 const flash = require('connect-flash');
 const ExpressError = require('./utils/ExpressError')
 
@@ -25,7 +24,9 @@ const postRoutes = require('./routes/posts_routes');
 const userRoutes = require('./routes/user_routes');
 
 // database mongoose connect code
-mongoose.connect('mongodb://127.0.0.1:27017/petharmony')
+const dbUrl = process.env.DB_URL  || 'mongodb://127.0.0.1:27017/petharmony'; 
+ 
+mongoose.connect(dbUrl)
     .then(() => {
         console.log("Mongo Connected!!!!")
     })
@@ -33,6 +34,8 @@ mongoose.connect('mongodb://127.0.0.1:27017/petharmony')
         console.log("On No error");
         console.log(err);
     })
+
+
 
 
 // Ejs engine load
@@ -46,8 +49,19 @@ app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')))
 
 
+const secret = process.env.SECRET || 'thisshouldbeabettersecret!';
+//Mongo store config
+const store = mongoStore.create({
+    mongoUrl: dbUrl,
+    touchAfter: 24 * 60 * 60,
+    crypto: {
+        secret: secret
+    }
+});
+
 const sessionConfig = {
-    secret: 'thisshouldbeabettersecret!',
+    store,
+    secret: secret,
     resave: false,
     saveUninitialized: true,
     cookie: {
