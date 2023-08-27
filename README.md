@@ -1,6 +1,6 @@
 # PetHarmony - Pet Selling/Adoption Marketplace
 
-![Project Preview]((https://github.com/nisarg3322/petharmony/blob/main/Preview.jpg?raw=true))
+![Project Preview](https://github.com/nisarg3322/petharmony/blob/main/Preview.jpg?raw=true)
 
 PetHarmony is a full-stack web application that serves as a marketplace for pet adoption and sales. This platform allows users to find, list, and adopt pets in need of a loving home. Built with modern web technologies, PetHarmony provides a seamless experience for users looking to connect with pets and pet owners.
 
