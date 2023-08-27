@@ -12,7 +12,7 @@ image upload in cloudanary.
  
 ========================
 username: patelnisarg3322
-password for mongo: v0hNFY8vOwU7ghWl
+password for mongo: 
 
 next step
 
@@ -75,3 +75,11 @@ Successfully deployed the project, showcasing coding expertise and a holistic gr
 
 
 Dynamic second-year Computer Engineering student at University of Ottawa (9.1/10.0 CGPA), adept in Java, Python, HTML, CSS, and JavaScript. Expertise spans full-stack Web development using Node.js, Express, and MongoDB. Seeking impactful internships to collaborate with industry leaders and elevate the world of Computer Engineering.
+
+
+heroku cmd commands
+
+heroku logs --tail == for logs and errors line console
+heroku restart = restart the app
+git push heroku main == to push the code and changes
+
