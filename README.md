@@ -51,8 +51,8 @@ July-August/23
 
 ## Contributors
 
-- Your Name
-- Your Email
+- Nisarg Patel
+- patelnisarg.3322@gmail.com
 
 Feel free to contribute to the project by submitting pull requests or reporting issues.
 
