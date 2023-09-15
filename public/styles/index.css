@@ -12,6 +12,17 @@ body {
 
 .custom-image-size{
     max-height: 300px;
-    
+    max-width: 100%;
     
 }
+
+.custom-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.description{
+    margin-right: 10px;
+}
+
