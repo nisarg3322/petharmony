@@ -64,34 +64,73 @@
           Discover the joy of pet ownership or find top-notch supplies, all in
           one place.
         </p>
-        <a
-          href="/posts"
-          class="btn btn-lg btn-secondary font-weight-bold border-white bg-white"
-          >View All Posts</a
-        >
-        <% if(currentUser) { %>
-        <a
-          href="/posts/new"
-          class="btn btn-lg btn-secondary font-weight-bold border-white bg-white"
-          >Create a new posts</a
-        >
-        <a
-          href="/<%= currentUser._id%>/myposts"
-          class="btn btn-lg btn-secondary font-weight-bold border-white bg-white"
-          >View my recent posts</a
-        >
-        <% } else { %>
-        <a
-          href="/login"
-          class="btn btn-lg btn-secondary font-weight-bold border-white bg-white"
-          >Login</a
-        >
-        <a
-          href="/register"
-          class="btn btn-lg btn-secondary font-weight-bold border-white bg-white"
-          >Register Now!!</a
-        >
-        <% } %>
+
+        <div class="row justify-content-center">
+          <div class="col-md-3">
+            <a
+              href="/posts"
+              class="btn btn-lg btn-secondary font-weight-bold border-white bg-white"
+              >View All Posts</a
+            >
+          </div>
+
+          <% if(currentUser) { %>
+          <div class="col-md-3 d-inline">
+            <a
+              href="/posts/new"
+              class="btn btn-lg btn-secondary font-weight-bold border-white bg-white"
+              >Create a new posts</a
+            >
+          </div>
+          <div class="col-md-3 d-inline">
+            <a
+              href="/<%= currentUser._id%>/myposts"
+              class="btn btn-lg btn-secondary font-weight-bold border-white bg-white"
+              >View my recent posts</a
+            >
+          </div>
+          <% } else { %>
+          <div class="col-md-3">
+            <form action="/login" method="post">
+              <div id="hiddenFields" style="display: none">
+                <input
+                  id="username"
+                  type="hidden"
+                  name="username"
+                  id="usernameField"
+                  value="test"
+                />
+                <input
+                  type="hidden"
+                  id="password"
+                  name="password"
+                  id="passwordField"
+                  value="test"
+                />
+              </div>
+              <button
+                class="btn btn-lg btn-secondary font-weight-bold border-white bg-white"
+              >
+                Login as Test User
+              </button>
+            </form>
+          </div>
+          <div class="col-md-3 d-inline">
+            <a
+              href="/login"
+              class="btn btn-lg btn-secondary font-weight-bold border-white bg-white"
+              >Login</a
+            >
+          </div>
+          <div class="col-md-3 d-inline">
+            <a
+              href="/register"
+              class="btn btn-lg btn-secondary font-weight-bold border-white bg-white"
+              >Register Now!!</a
+            >
+          </div>
+          <% } %>
+        </div>
       </main>
 
       <footer class="footer text-white-50">
