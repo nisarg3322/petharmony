@@ -13,15 +13,15 @@ const LocalStrategy = require("passport-local");
 const session = require("express-session");
 const mongoStore = require("connect-mongo");
 const flash = require("connect-flash");
-const ExpressError = require("./utils/ExpressError");
+const ExpressError = require("../utils/ExpressError");
 const serverless = require("serverless-http");
 
 // requiring models
-const User = require("./models/user_model");
+const User = require("../models/user_model");
 
 // Requiring routes
-const postRoutes = require("./routes/posts_routes");
-const userRoutes = require("./routes/user_routes");
+const postRoutes = require("../routes/posts_routes");
+const userRoutes = require("../routes/user_routes");
 
 // database mongoose connect code
 const dbUrl = process.env.DB_URL || "mongodb://127.0.0.1:27017/petharmony";
